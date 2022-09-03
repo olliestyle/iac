@@ -32,15 +32,13 @@ public class ContactController {
     }
 
     @PutMapping("/")
-    public ResponseEntity<Void> update(@RequestBody ContactDateDTO contactDateDTO) {
+    public void update(@RequestBody ContactDateDTO contactDateDTO) {
         contactService.update(contactDateDTO);
-        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+    public void delete(@PathVariable Integer id) {
         contactService.delete(id);
-        return ResponseEntity.ok().build();
     }
 
 }

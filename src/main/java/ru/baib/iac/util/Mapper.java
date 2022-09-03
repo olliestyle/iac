@@ -20,6 +20,7 @@ public class Mapper {
 
     public Contact toContact(ContactDateDTO contactDateDTO) {
         Contact contact = new Contact();
+        contact.setId(contactDateDTO.getId());
         contact.setName(contactDateDTO.getName());
         contact.setNumber(contactDateDTO.getNumber());
         return contact;
