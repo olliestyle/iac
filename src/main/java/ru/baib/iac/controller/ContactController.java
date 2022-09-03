@@ -3,7 +3,7 @@ package ru.baib.iac.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.baib.iac.model.Contact;
+import ru.baib.iac.dto.ContactDateDTO;
 import ru.baib.iac.service.ContactService;
 
 import java.util.List;
@@ -19,21 +19,21 @@ public class ContactController {
     }
 
     @GetMapping("/")
-    public List<Contact> findAll() {
+    public List<ContactDateDTO> findAll() {
         return contactService.findAll();
     }
 
     @PostMapping("/")
-    public ResponseEntity<Contact> create(@RequestBody Contact contact) {
+    public ResponseEntity<ContactDateDTO> create(@RequestBody ContactDateDTO contactDateDTO) {
         return new ResponseEntity<>(
-                contactService.save(contact),
+                contactService.save(contactDateDTO),
                 HttpStatus.CREATED
         );
     }
 
     @PutMapping("/")
-    public ResponseEntity<Void> update(@RequestBody Contact contact) {
-        contactService.update(contact);
+    public ResponseEntity<Void> update(@RequestBody ContactDateDTO contactDateDTO) {
+        contactService.update(contactDateDTO);
         return ResponseEntity.ok().build();
     }
 
