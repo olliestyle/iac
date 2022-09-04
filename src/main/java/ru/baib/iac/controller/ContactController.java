@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.baib.iac.dto.ContactDateDTO;
 import ru.baib.iac.service.ContactService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class ContactController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<ContactDateDTO> create(@RequestBody ContactDateDTO contactDateDTO) {
+    public ResponseEntity<ContactDateDTO> create(@Valid @RequestBody ContactDateDTO contactDateDTO) {
         return new ResponseEntity<>(
                 contactService.save(contactDateDTO),
                 HttpStatus.CREATED
@@ -32,7 +33,7 @@ public class ContactController {
     }
 
     @PutMapping("/")
-    public void update(@RequestBody ContactDateDTO contactDateDTO) {
+    public void update(@Valid @RequestBody ContactDateDTO contactDateDTO) {
         contactService.update(contactDateDTO);
     }
 

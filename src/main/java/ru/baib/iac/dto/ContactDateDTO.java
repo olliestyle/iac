@@ -1,9 +1,16 @@
 package ru.baib.iac.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class ContactDateDTO {
 
     private Integer id;
+    @NotNull(message = "field name mustn't be null")
+    @NotBlank(message = "field name mustn't be blank")
     private String name;
+    @NotNull(message = "field number mustn't be null")
+    @NotBlank(message = "field number mustn't be blank")
     private String number;
     private String created;
 
